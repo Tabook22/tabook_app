@@ -1,0 +1,50 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<div class="container">
+   <h1>
+        Tabook's App Index
+    </h1>
+    <div>
+        <a onclick="showPostForm()" href="#post_form"  class="btn btn-default">Add New</a>
+
+            <form id="post_form" method="POST" style="opacity:0; height:0px;">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="title">Title</label>
+                      <input type="text" class="form-control" id="title" placeholder="Enter title">
+                    </div>
+                    <div class="form-group">
+                      <label for="description">Password</label>
+                      <textarea class="form-control" rows="3" id="description" placehoder="Enter more Description"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </form>
+    </div>
+    <div style="padding-top:40px;">
+        <hr>
+    </div>
+     <ul class="list-group">
+    <div>{% for itm in tabook_list %}
+          
+                    <li class="list-group-item"> 
+                        <span class="badge">
+                                {{ forloop.counter }}
+                        </span>
+                        <header> 
+                            {{itm.title}}
+                        </header>
+                            
+                        
+                        <p>
+                            {{itm.description}}
+                        </p>
+                    </li>
+                   
+                 
+
+       {% endfor %}
+    </ul>
+    </div>  
+</div>
+   
+{% endblock %}
