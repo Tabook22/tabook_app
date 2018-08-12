@@ -18,3 +18,10 @@ def index_view(request):
         tabook_new.save() #to save to database, because create not saving to database
         return render(request, 'tabook_app/index.html',context)
     return render(request, 'tabook_app/index.html',context)
+
+def artlst_view(request):
+     tabook_list=Tabooksite.objects.all()
+    context={
+        'tabook_list':tabook_list
+    }
+    return render(request, 'tabook_app/lst.html',context)

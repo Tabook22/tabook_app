@@ -4,5 +4,6 @@ from . import views
 app_name='tabook_app'
 
 urlpatterns=[
-    path('index/',views.index_view, name='index')
+    path('',views.index_view, name='index'),
+    path('lst/',views.artlst_view, name='lst'),
 ]
